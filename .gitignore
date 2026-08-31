@@ -1,0 +1,6 @@
+# macOS Finder metadata — machine-specific junk, never part of the project
+.DS_Store
+
+# Local environment secrets (API keys, tokens) must stay off the remote
+.env
+.env.*
