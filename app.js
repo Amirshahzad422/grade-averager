@@ -1,7 +1,7 @@
 function averageGrades(grades) {
   if (!grades.length) return null;
   const sum = grades.reduce((total, grade) => total + grade, 0);
-  return sum / grades.length;
+  return Math.round((sum / grades.length) * 10) / 10;
 }
 
 function parseGrades(raw) {
@@ -9,7 +9,7 @@ function parseGrades(raw) {
     .split(/[\s,]+/)
     .filter(Boolean)
     .map(Number)
-    .filter((n) => Number.isFinite(n));
+    .filter((n) => Number.isFinite(n) && n >= 0 && n <= 100);
 }
 
 function showAverage() {
@@ -22,7 +22,7 @@ function showAverage() {
     return;
   }
 
-  result.textContent = "Average: " + avg.toFixed(2);
+  result.textContent = "Average: " + avg.toFixed(1);
 }
 
 document.getElementById("avg-btn").addEventListener("click", showAverage);
